@@ -3,13 +3,13 @@ import "./App.css";
 import { DefaultContainerLayout } from "./layouts/DefaultLayout/styles";
 import { GlobalStyle } from "./styles/global";
 import { defaultTheme } from "./styles/themes/default";
-import { Header } from "./components/Header";
+import { Home } from "./pages/Home";
 
 function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <DefaultContainerLayout>
-        <Header />
+        <Home />
         <GlobalStyle />
       </DefaultContainerLayout>
     </ThemeProvider>
