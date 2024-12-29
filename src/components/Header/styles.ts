@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ShoppingCartBase } from "../../styles/global";
 
 export const HeaderContainer = styled.div`
   padding: 2rem 0;
@@ -29,15 +30,7 @@ export const LocationField = styled.div`
   }
 `;
 
-export const ShoppingCartButton = styled.div`
-  background-color: ${(props) => props.theme["yellow-light"]};
-  height: 38px;
-  width: 38px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 6px;
-  position: relative;
+export const ShoppingCartButton = styled(ShoppingCartBase)`
   p {
     background-color: ${(props) => props.theme["yellow-dark"]};
     border-radius: 5000px;

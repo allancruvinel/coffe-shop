@@ -6,3 +6,7 @@ export type DefaultThemeType = typeof defaultTheme;
 declare module "styled-components" {
   export interface DefaultTheme extends DefaultThemeType {}
 }
+
+export interface IconItemProps {
+  variant?: keyof DefaultThemeType;
+}
