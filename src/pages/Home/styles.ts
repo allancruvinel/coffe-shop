@@ -60,8 +60,6 @@ export const IconItem = styled(ShoppingCartBase)<IconItemProps>`
     props.theme[props.variant ? props.variant : "white"]};
   height: 32px;
   width: 32px;
-  min-width: 32px;
-  min-height: 32px;
   border-radius: 5000px;
 `;
 
