@@ -1,5 +1,5 @@
-import { CoffeItem } from "../CoffeItem";
-import { CoffeListStyle, List } from "./styles";
+import { CoffeItem } from '../CoffeItem';
+import { CoffeListStyle, List } from './styles';
 
 export const CoffeList = () => {
   return (

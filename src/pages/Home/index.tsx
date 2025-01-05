@@ -1,6 +1,6 @@
-import { ShoppingCart } from "phosphor-react";
-import { Header } from "../../components/Header";
-import { ShoppingCartButton } from "../../components/Header/styles";
+import { ShoppingCart } from 'phosphor-react';
+import { Header } from '../../components/Header';
+import { ShoppingCartButton } from '../../components/Header/styles';
 import {
   HomeStyle,
   IconItem,
@@ -12,15 +12,14 @@ import {
   Items,
   LogoGrande,
   Title,
-} from "./styles";
-import { defaultTheme } from "../../styles/themes/default";
-import LogoGigante from "../../assets/Imagem.svg";
-import { CoffeList } from "./components/CoffeList";
+} from './styles';
+import { defaultTheme } from '../../styles/themes/default';
+import LogoGigante from '../../assets/Imagem.svg';
+import { CoffeList } from './components/CoffeList';
 
 export const Home = () => {
   return (
     <HomeStyle>
-      <Header />
       <Intro>
         <div>
           <Title>
@@ -32,7 +31,7 @@ export const Home = () => {
           </Title>
           <Items>
             <Item>
-              <IconItem variant={"yellow-dark"}>
+              <IconItem variant={'yellow-dark'}>
                 <ShoppingCart
                   size={16}
                   weight="fill"
@@ -52,7 +51,7 @@ export const Home = () => {
               <p>Embalagem mantém o café intacto</p>
             </Item>
             <Item>
-              <IconItem3 variant={"yellow-light"}>
+              <IconItem3 variant={'yellow-light'}>
                 <ShoppingCart
                   size={16}
                   weight="fill"
@@ -62,7 +61,7 @@ export const Home = () => {
               <p>Entrega rápida e rastreada</p>
             </Item>
             <Item>
-              <IconItem4 variant={"yellow-light"}>
+              <IconItem4 variant={'yellow-light'}>
                 <ShoppingCart
                   size={16}
                   weight="fill"

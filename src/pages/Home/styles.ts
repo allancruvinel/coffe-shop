@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import { DefaultThemeType, IconItemProps } from "../../@types/styled";
-import BackgroundImage from "../../assets/BackgroundIntro.svg";
-import { ShoppingCartBase } from "../../styles/global";
+import styled from 'styled-components';
+import { DefaultThemeType, IconItemProps } from '../../@types/styled';
+import BackgroundImage from '../../assets/BackgroundIntro.svg';
+import { ShoppingCartBase } from '../../styles/global';
 export const HomeStyle = styled.div``;
 
 export const Intro = styled.div`
@@ -30,7 +30,7 @@ export const Title = styled.div`
     letter-spacing: 0%;
   }
   p {
-    font-family: "roboto", sans-serif;
+    font-family: 'roboto', sans-serif;
     font-weight: 400;
     font-size: 20px;
   }
@@ -48,23 +48,23 @@ export const Item = styled.div`
   align-items: center;
   gap: 12px;
   p {
-    font-family: "roboto";
+    font-family: 'roboto';
     font-size: 16px;
     font-weight: 400;
-    color: ${(props) => props.theme["base-text"]};
+    color: ${(props) => props.theme['base-text']};
   }
 `;
 
 export const IconItem = styled(ShoppingCartBase)<IconItemProps>`
   background-color: ${(props) =>
-    props.theme[props.variant ? props.variant : "white"]};
+    props.theme[props.variant ? props.variant : 'white']};
   height: 32px;
   width: 32px;
   border-radius: 5000px;
 `;
 
 export const IconItem2 = styled(IconItem)`
-  background-color: ${(props) => props.theme["base-text"]};
+  background-color: ${(props) => props.theme['base-text']};
 `;
 export const IconItem3 = styled(IconItem)`
   background-color: ${(props) => props.theme.yellow};

@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { ShoppingCartBase } from "../../styles/global";
+import styled from 'styled-components';
+import { ShoppingCartBase } from '../../styles/global';
 
 export const HeaderContainer = styled.div`
   padding: 2rem 0;
@@ -15,7 +15,7 @@ export const ActionsField = styled.div`
 `;
 
 export const LocationField = styled.div`
-  background-color: ${(props) => props.theme["purple-light"]};
+  background-color: ${(props) => props.theme['purple-light']};
   display: flex;
 
   align-items: center;
@@ -26,13 +26,13 @@ export const LocationField = styled.div`
   border-radius: 6px;
 
   p {
-    color: ${(props) => props.theme["purple-dark"]};
+    color: ${(props) => props.theme['purple-dark']};
   }
 `;
 
 export const ShoppingCartButton = styled(ShoppingCartBase)`
   p {
-    background-color: ${(props) => props.theme["yellow-dark"]};
+    background-color: ${(props) => props.theme['yellow-dark']};
     border-radius: 5000px;
     width: 20px;
     height: 20px;

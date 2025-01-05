@@ -1,4 +1,4 @@
-import { CategoryStyle } from "./styles";
+import { CategoryStyle } from './styles';
 
 export const Category = () => {
   return (
