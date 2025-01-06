@@ -1,10 +1,14 @@
+import { DeliveryFormCard } from './components/DeliveryFormCard';
+import { PaymentTypeCard } from './components/PaymentTypeCard';
+import { CheckoutContainer } from './styles';
+
 export function Checkout() {
   return (
-    <div>
+    <CheckoutContainer>
       <div>
         <h1>Complete seu pedido</h1>
-        <div className="Form"></div>
-        <div className="PaymentType"></div>
+        <DeliveryFormCard />
+        <PaymentTypeCard />
       </div>
       <div>
         <h1>Cafés selecionados</h1>
@@ -39,6 +43,6 @@ export function Checkout() {
           <button>Confirmar Pedido</button>
         </div>
       </div>
-    </div>
+    </CheckoutContainer>
   );
 }
