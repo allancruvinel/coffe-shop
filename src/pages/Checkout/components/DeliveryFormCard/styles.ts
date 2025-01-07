@@ -1,15 +1,13 @@
 import styled from 'styled-components';
 import { CardBaseContainer } from '../../styles';
 
-
-
 export const DeliveryFormContainer = styled(CardBaseContainer)`
   form {
     margin-top: 40px;
     display: grid;
     row-gap: 16px;
   }
-`
+`;
 
 export const InputFormBase = styled.input`
   height: 42px;
@@ -55,5 +53,3 @@ export const InputRow = styled.div`
   justify-content: space-between;
   column-gap: 16px;
 `;
-
-

@@ -10,6 +10,9 @@ export const GlobalStyle = createGlobalStyle`
 body,input,textarea,button{
      font-family: 'Baloo 2', 'Roboto Mono', sans-serif;
 }
+:focus{
+    outline: 0;
+}
 
 body {
   overflow-y: scroll; 

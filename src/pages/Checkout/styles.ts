@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const CheckoutContainer = styled.div`
   display: flex;
   gap: 32px;
+  justify-content: space-between;
 `;
 
 export const CardBaseContainer = styled.div`
@@ -13,18 +14,18 @@ export const CardBaseContainer = styled.div`
 `;
 
 export const TitleCard = styled.div`
-    display: flex;
-    gap: 8px;
-        div{
-            p{
-                font-family: 'roboto';
-                font-size: 16px;
-                color: ${props => props.theme['base-subtitle']};
-            }
-            p:nth-of-type(2) {
-                font-family: 'roboto';
-                font-size: 14px;
-                color: ${props => props.theme['base-text']};
-            }
-        }
-`
+  display: flex;
+  gap: 8px;
+  div {
+    p {
+      font-family: 'roboto';
+      font-size: 16px;
+      color: ${(props) => props.theme['base-subtitle']};
+    }
+    p:nth-of-type(2) {
+      font-family: 'roboto';
+      font-size: 14px;
+      color: ${(props) => props.theme['base-text']};
+    }
+  }
+`;
