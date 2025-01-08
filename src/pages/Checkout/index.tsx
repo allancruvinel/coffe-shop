@@ -1,18 +1,18 @@
 import { BillOrderCard } from './components/BillOrderCard';
 import { DeliveryFormCard } from './components/DeliveryFormCard';
 import { PaymentTypeCard } from './components/PaymentTypeCard';
-import { CheckoutContainer } from './styles';
+import { CardLabel, CheckoutContainer, TitleCard } from './styles';
 
 export function Checkout() {
   return (
     <CheckoutContainer>
       <div>
-        <h1>Complete seu pedido</h1>
+        <CardLabel>Complete seu pedido</CardLabel>
         <DeliveryFormCard />
         <PaymentTypeCard />
       </div>
       <div>
-        <h1>Cafés selecionados</h1>
+        <CardLabel>Cafés selecionados</CardLabel>
         <BillOrderCard />
       </div>
     </CheckoutContainer>

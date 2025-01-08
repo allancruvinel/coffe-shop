@@ -4,8 +4,6 @@ export const CoffeeCartContainer = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 8px 4px;
-  margin-bottom: 24px;
-  border-bottom: 1px solid #ccc;
 `;
 export const Details = styled.div`
   display: flex;

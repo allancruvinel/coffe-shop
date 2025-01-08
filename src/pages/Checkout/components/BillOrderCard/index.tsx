@@ -1,26 +1,37 @@
 import { CoffeeCart } from './components/CoffeeCart';
-import { BillOrderCardContainer } from './styles';
+import {
+  BillOrderCardContainer,
+  BillPrice,
+  CommitOrderButton,
+  DemonstrativeCalc,
+  DemonstrativeTotal,
+  Divider,
+} from './styles';
 
 export const BillOrderCard = () => {
   return (
     <BillOrderCardContainer>
       <CoffeeCart />
+      <Divider />
       <CoffeeCart />
-      <div>
-        <div>
+      <Divider />
+      <CoffeeCart />
+      <Divider />
+      <BillPrice>
+        <DemonstrativeCalc>
           <p>Total de itens</p>
-          <p>preço sem frete</p>
-        </div>
-        <div>
+          <p>R$ 29,70</p>
+        </DemonstrativeCalc>
+        <DemonstrativeCalc>
           <p>Entrega</p>
-          <p>preço entrega</p>
-        </div>
-        <div>
+          <p>R$ 3,50</p>
+        </DemonstrativeCalc>
+        <DemonstrativeTotal>
           <p>Total</p>
-          <p>preço total</p>
-        </div>
-        <button>Confirmar Pedido</button>
-      </div>
+          <p>R$ 33,20</p>
+        </DemonstrativeTotal>
+      </BillPrice>
+      <CommitOrderButton>confirmar pedido</CommitOrderButton>
     </BillOrderCardContainer>
   );
 };

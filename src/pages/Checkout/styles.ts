@@ -12,6 +12,12 @@ export const CardBaseContainer = styled.div`
   padding: 40px;
   border-radius: 6px;
 `;
+export const CardLabel = styled.h1`
+  color: ${props => props.theme['base-subtitle']};
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 15px;
+`
 
 export const TitleCard = styled.div`
   display: flex;
