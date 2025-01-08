@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { DefaultThemeType, IconItemProps } from '../../@types/styled';
-import BackgroundImage from '../../assets/BackgroundIntro.svg';
+import { IconItemProps } from '../../@types/styled';
 import { ShoppingCartBase } from '../../styles/global';
 export const HomeStyle = styled.div``;
 

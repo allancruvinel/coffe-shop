@@ -1,6 +1,4 @@
 import { ShoppingCart } from 'phosphor-react';
-import { Header } from '../../components/Header';
-import { ShoppingCartButton } from '../../components/Header/styles';
 import {
   HomeStyle,
   IconItem,
