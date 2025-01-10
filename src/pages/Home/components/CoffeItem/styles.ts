@@ -15,6 +15,9 @@ export const CoffeItemStyle = styled.div`
 
 export const AddToShoppingCart = styled(ShoppingCartBase)`
   background-color: ${(props) => props.theme['purple-dark']};
+  &:hover {
+    background-color: ${(props) => props.theme.purple};
+  }
 `;
 
 export const CoffeItemImage = styled.div`
@@ -98,5 +101,11 @@ export const ProductCounter = styled.div`
     font-size: 16px;
     width: 20px;
     text-align: center;
+  }
+  svg {
+    color: ${(props) => props.theme.purple};
+  }
+  svg:hover {
+    color: ${(props) => props.theme['purple-dark']};
   }
 `;

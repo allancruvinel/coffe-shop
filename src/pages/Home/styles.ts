@@ -30,7 +30,6 @@ export const Title = styled.div`
   }
   p {
     font-family: 'roboto', sans-serif;
-    font-weight: 400;
     font-size: 20px;
   }
 `;

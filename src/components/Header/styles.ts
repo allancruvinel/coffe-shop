@@ -12,6 +12,9 @@ export const ActionsField = styled.div`
   align-items: center;
   justify-content: center;
   gap: 12px;
+  a {
+    text-decoration: none;
+  }
 `;
 
 export const LocationField = styled.div`

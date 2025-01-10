@@ -38,9 +38,9 @@ export const CoffeItem = () => {
         </Price>
         <Actions>
           <ProductCounter>
-            <Minus size={14} weight="fill" color={defaultTheme.purple} />
+            <Minus size={14} weight="fill" />
             <p>1</p>
-            <Plus size={14} weight="fill" color={defaultTheme.purple} />
+            <Plus size={14} weight="fill" />
           </ProductCounter>
           <IconItem variant={'yellow-dark'}>
             <AddToShoppingCart>

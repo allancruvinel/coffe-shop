@@ -17,10 +17,12 @@ export const Header = () => {
       </Link>
       <nav>
         <ActionsField>
-          <LocationField>
-            <MapPin size={24} color={defaultTheme['purple']} weight="fill" />
-            <p>Porto Alegre, RS</p>
-          </LocationField>
+          <Link to="/success">
+            <LocationField>
+              <MapPin size={24} color={defaultTheme['purple']} weight="fill" />
+              <p>Porto Alegre, RS</p>
+            </LocationField>
+          </Link>
           <Link to="/checkout">
             <ShoppingCartButton>
               <p>3</p>

@@ -16,4 +16,10 @@ export const ProductCounter = styled.div`
     width: 20px;
     text-align: center;
   }
+  svg {
+    color: ${(props) => props.theme.purple};
+  }
+  svg:hover {
+    color: ${(props) => props.theme['purple-dark']};
+  }
 `;

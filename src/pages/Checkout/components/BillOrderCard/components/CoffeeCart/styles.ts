@@ -43,6 +43,9 @@ export const RemoveToShoppingCartButton = styled.button`
     line-height: 160%;
     color: ${(props) => props.theme['base-text']};
   }
+  &:hover {
+    background-color: ${(props) => props.theme['base-hover']};
+  }
 `;
 
 export const Price = styled.p`

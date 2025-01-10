@@ -18,6 +18,10 @@ export const InputFormBase = styled.input`
   border-radius: 4px;
   font-family: 'roboto';
   font-size: 14px;
+  &:focus {
+    outline: 0;
+    border: 1px solid ${(props) => props.theme.yellow};
+  }
   @media (max-width: 700px) {
     width: 100%;
   }
