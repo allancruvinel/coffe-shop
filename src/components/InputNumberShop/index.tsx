@@ -1,5 +1,4 @@
 import { Minus, Plus } from 'phosphor-react';
-import { defaultTheme } from '../../styles/themes/default';
 import { ProductCounter } from './styles';
 
 export function InputNumberShop() {

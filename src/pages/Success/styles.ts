@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { CardBaseContainer } from '../Checkout/styles';
 
 export const SuccessContainer = styled.div``;
 export const TextConfirmation = styled.div`
