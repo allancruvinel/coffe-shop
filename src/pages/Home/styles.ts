@@ -32,14 +32,27 @@ export const Title = styled.div`
     font-family: 'roboto', sans-serif;
     font-size: 20px;
   }
+  @media (max-width: 480px) {
+    width: 26.75rem;
+    h1{
+      font-size: 25px;
+      
+    }
+    
+  }
 `;
 
 export const Items = styled.div`
   margin-top: 66px;
   display: grid;
+  
   grid-template-columns: 231px 294px;
   row-gap: 20px;
   column-gap: 20px;
+  @media (max-width: 480px) {
+    grid-template-columns: 200px 200px;
+    justify-content: center;
+  }
 `;
 export const Item = styled.div`
   display: flex;

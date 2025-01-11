@@ -14,7 +14,10 @@ export const List = styled.div`
     row-gap: 28px;
     column-gap: 11px;
   }
-  @media (max-width: 550px) {
+  @media (max-width: 634px) {
     grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(1, 1fr);
   }
 `;

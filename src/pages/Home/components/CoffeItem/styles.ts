@@ -11,6 +11,9 @@ export const CoffeItemStyle = styled.div`
   position: relative;
   align-items: center;
   text-align: center;
+  @media (max-width: 480px) {
+    width: 20rem;
+  }
 `;
 
 export const AddToShoppingCart = styled(ShoppingCartBase)`
@@ -25,7 +28,7 @@ export const CoffeItemImage = styled.div`
   height: 120px;
   position: absolute;
   top: -20px;
-  left: calc(16rem / 4);
+  
 
   img {
     width: 100%;
