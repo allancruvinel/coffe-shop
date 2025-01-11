@@ -11,8 +11,9 @@ export const CoffeItemStyle = styled.div`
   position: relative;
   align-items: center;
   text-align: center;
+  
   @media (max-width: 480px) {
-    width: 20rem;
+    width: 100%;
   }
 `;
 

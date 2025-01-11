@@ -5,6 +5,9 @@ export const CoffeListStyle = styled.div``;
 export const List = styled.div`
   margin-top: 54px;
   display: grid;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 40px;
   column-gap: 32px;
