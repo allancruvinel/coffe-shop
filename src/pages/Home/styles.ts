@@ -15,6 +15,9 @@ export const Intro = styled.div`
     flex-direction: column;
     gap: 3rem;
   }
+  @media (max-width: 480px) {
+    padding: 2.063rem 0;
+  }
 `;
 
 export const Title = styled.div`
@@ -33,24 +36,23 @@ export const Title = styled.div`
     font-size: 20px;
   }
   @media (max-width: 480px) {
-    width: 26.75rem;
-    h1{
+    width: 22.75rem;
+    gap: 16px;
+    h1 {
       font-size: 25px;
-      
     }
-    
   }
 `;
 
 export const Items = styled.div`
   margin-top: 66px;
   display: grid;
-  
+
   grid-template-columns: 231px 294px;
   row-gap: 20px;
   column-gap: 20px;
   @media (max-width: 480px) {
-    grid-template-columns: 200px 200px;
+    grid-template-columns: 150px 190px;
     justify-content: center;
   }
 `;
@@ -91,5 +93,9 @@ export const LogoGrande = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+  @media (max-width: 480px) {
+    width: 100%;
+  height: 100%
   }
 `;

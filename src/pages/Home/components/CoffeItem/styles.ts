@@ -28,7 +28,6 @@ export const CoffeItemImage = styled.div`
   height: 120px;
   position: absolute;
   top: -20px;
-  
 
   img {
     width: 100%;
