@@ -8,7 +8,7 @@ export const TextConfirmation = styled.div`
   font-size: 32px;
 `;
 export const ConfirmationCard = styled.div`
-  width: 526px;
+  min-width: 526px;
   padding: 40px;
   display: flex;
   flex-direction: column;
@@ -34,19 +34,33 @@ export const ConfirmationCard = styled.div`
     z-index: -1;
     border-radius: 6px 36px;
   }
+
+  @media (max-width: 580px) {
+    min-width: 390px;
+  }
 `;
 
-export const Illustration = styled.img``;
+export const Illustration = styled.img`
+  width: 492px;
+  height: 293px;
+  @media (max-width: 580px) {
+    width: 450px;
+    height: 350px;
+  }
+`;
 
 export const Info = styled.div`
   margin-top: 28px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  img {
-    width: 492px;
-    height: 293px;
+
+  @media (max-width: 580px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
+  
 `;
 
 interface ImageLineProps {

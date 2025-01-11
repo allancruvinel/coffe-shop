@@ -11,6 +11,10 @@ export const PaymentTypeCardContainer = styled(CardBaseContainer)`
 export const PaymentOptions = styled.div`
   display: flex;
   gap: 12px;
+  @media (max-width: 580px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 export const PaymentOption = styled.button`
   display: flex;
@@ -36,5 +40,8 @@ export const PaymentOption = styled.button`
     outline: none;
     border: 1px solid ${(props) => props.theme.purple};
     background-color: ${(props) => props.theme['purple-light']};
+  }
+  @media (max-width: 580px) {
+    width: 100%;
   }
 `;

@@ -20,7 +20,7 @@ export const List = styled.div`
   @media (max-width: 634px) {
     grid-template-columns: repeat(2, 1fr);
   }
-  @media (max-width: 480px) {
+  @media (max-width: 580px) {
     grid-template-columns: repeat(1, 1fr);
   }
 `;

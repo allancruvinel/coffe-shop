@@ -29,6 +29,9 @@ export const InputFormBase = styled.input`
 
 export const InputFormCep = styled(InputFormBase)`
   width: calc(40% - 16px / 2);
+  @media (max-width: 580px) {
+    width: 100%;
+  }
 `;
 
 export const InputFormRua = styled(InputFormBase)`
@@ -37,19 +40,34 @@ export const InputFormRua = styled(InputFormBase)`
 
 export const InputFormNumero = styled(InputFormBase)`
   width: calc(40% - 16px / 2);
+  @media (max-width: 580px) {
+    width: 100%;
+  }
 `;
 export const InputFormComplemento = styled(InputFormBase)`
   width: calc(60% - 16px / 2);
+  @media (max-width: 580px) {
+    width: 100%;
+  }
 `;
 
 export const InputFormBairro = styled(InputFormBase)`
   width: calc(40% - 1rem / 3);
+  @media (max-width: 580px) {
+    width: 100%;
+  }
 `;
 export const InputFormCidade = styled(InputFormBase)`
   width: calc(49% - 1rem / 3);
+  @media (max-width: 580px) {
+    width: 100%;
+  }
 `;
 export const InputFormUf = styled(InputFormBase)`
   width: calc(9% - 1rem / 3);
+  @media (max-width: 580px) {
+    width: 100%;
+  }
 `;
 
 export const InputRow = styled.div`

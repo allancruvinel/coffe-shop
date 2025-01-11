@@ -4,6 +4,9 @@ import { CardBaseContainer } from '../../styles';
 export const BillOrderCardContainer = styled(CardBaseContainer)`
   border-radius: 6px 44px;
   width: 448px;
+  @media (max-width: 580px) {
+    width: 400px;
+  }
 `;
 
 export const Divider = styled.div`

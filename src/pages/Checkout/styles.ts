@@ -4,6 +4,11 @@ export const CheckoutContainer = styled.div`
   display: flex;
   gap: 32px;
   justify-content: space-between;
+  @media (max-width: 580px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const CardBaseContainer = styled.div`
@@ -11,6 +16,9 @@ export const CardBaseContainer = styled.div`
   background-color: ${(props) => props.theme['base-card']};
   padding: 40px;
   border-radius: 6px;
+  @media (max-width: 580px) {
+    width: 400px;
+  }
 `;
 export const CardLabel = styled.h1`
   color: ${(props) => props.theme['base-subtitle']};
