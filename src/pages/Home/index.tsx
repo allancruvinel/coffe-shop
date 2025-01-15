@@ -14,6 +14,7 @@ import {
 import { defaultTheme } from '../../styles/themes/default';
 import LogoGigante from '../../assets/Imagem.svg';
 import { CoffeList } from './components/CoffeList';
+import { CartContext, CartContextProvider } from '../../context/CartContext';
 
 export const Home = () => {
   return (
@@ -74,7 +75,9 @@ export const Home = () => {
           <img src={LogoGigante} alt="" />
         </LogoGrande>
       </Intro>
-      <CoffeList />
+      <CartContextProvider>
+        <CoffeList />
+      </CartContextProvider>
     </HomeStyle>
   );
 };

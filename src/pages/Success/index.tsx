@@ -25,7 +25,7 @@ export const Success = () => {
       <Info>
         <ConfirmationCard>
           <Local>
-            <ImageLine backgroundColor={defaultTheme.purple}>
+            <ImageLine variant={defaultTheme.purple}>
               <MapPin weight="fill" color={defaultTheme.white} size={16} />
             </ImageLine>
             <TextInformation>
@@ -36,7 +36,7 @@ export const Success = () => {
             </TextInformation>
           </Local>
           <Time>
-            <ImageLine backgroundColor={defaultTheme.yellow}>
+            <ImageLine variant={defaultTheme.yellow}>
               <Timer weight="fill" color={defaultTheme.white} size={16} />
             </ImageLine>
             <TextInformation>
@@ -47,7 +47,7 @@ export const Success = () => {
             </TextInformation>
           </Time>
           <Payment>
-            <ImageLine backgroundColor={defaultTheme['yellow-dark']}>
+            <ImageLine variant={defaultTheme['yellow-dark']}>
               <CurrencyDollar
                 weight="fill"
                 color={defaultTheme.white}

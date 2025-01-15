@@ -60,14 +60,13 @@ export const Info = styled.div`
     justify-content: center;
     align-items: center;
   }
-  
 `;
 
 interface ImageLineProps {
-  backgroundColor: string;
+  variant: string;
 }
 export const ImageLine = styled.div<ImageLineProps>`
-  background-color: ${(props) => props.backgroundColor};
+  background-color: ${(props) => props.variant};
   width: 32px;
   height: 32px;
   display: flex;

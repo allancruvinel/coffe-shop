@@ -1,9 +1,14 @@
+import { CoffeeCategoryEnum } from '../../../CoffeList';
 import { CategoryStyle } from './styles';
 
-export const Category = () => {
+interface CategoryProps {
+  categoryName: CoffeeCategoryEnum;
+}
+
+export const Category = (props: CategoryProps) => {
   return (
     <CategoryStyle>
-      <p>TRADICIONAL</p>
+      <p>{props.categoryName.toString()}</p>
     </CategoryStyle>
   );
 };

@@ -55,6 +55,7 @@ export const Description = styled.p`
   font-family: 'roboto';
   width: 216px;
   size: 14px;
+  text-align: center;
   line-height: 130%;
   color: ${(props) => props.theme['base-label']};
 `;
