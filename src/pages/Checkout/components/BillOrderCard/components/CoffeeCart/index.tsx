@@ -9,17 +9,20 @@ import {
   RemoveToShoppingCartButton,
   Title,
 } from './styles';
-import CoffeImage from '../../../../../../assets/Coffee.svg';
 import { InputNumberShop } from '../../../../../../components/InputNumberShop';
 import { defaultTheme } from '../../../../../../styles/themes/default';
+import { Order } from '../../../../../../context/CartContext';
 
-export function CoffeeCart() {
+export function CoffeeCart({ order }: { order: Order }) {
   return (
     <CoffeeCartContainer>
       <Info>
-        <CoffeItemImage src={CoffeImage} alt="" />
+        <CoffeItemImage
+          src={`/assets/CoffeeImages/${order.product.image_src}`}
+          alt=""
+        />
         <Details>
-          <Title>Expresso Tradicional</Title>
+          <Title>{order.product.name}</Title>
           <Actions>
             <InputNumberShop />
             <RemoveToShoppingCartButton>

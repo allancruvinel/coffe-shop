@@ -3,25 +3,12 @@ import { CoffeItem } from '../CoffeItem';
 import { CoffeListStyle, List } from './styles';
 
 export interface CoffeeProduct {
+  id: number;
   name: string;
   description: string;
   price: number;
   categories: CoffeeCategoryEnum[];
   image_src: string;
-}
-
-export interface Order {
-  product: CoffeeProduct;
-  quantity: number;
-}
-
-export interface Cart {
-  orders: Order[];
-}
-
-export interface DeliveryInfo {
-  cart: Cart;
-  userDelivery: any;
 }
 
 export enum CoffeeCategoryEnum {
@@ -35,6 +22,7 @@ export enum CoffeeCategoryEnum {
 export const CoffeList = () => {
   const coffeeList: CoffeeProduct[] = [
     {
+      id: 1,
       name: 'Expresso Tradicional',
       description: 'O tradicional café feito com água quente e grãos moídos',
       price: 9.9,
@@ -45,6 +33,7 @@ export const CoffeList = () => {
       ],
     },
     {
+      id: 2,
       name: 'Expresso Americano',
       description: 'Expresso diluído, menos intenso que o tradicional',
       price: 9.9,
@@ -52,6 +41,7 @@ export const CoffeList = () => {
       categories: [CoffeeCategoryEnum.TRADICIONAL],
     },
     {
+      id: 3,
       name: 'Expresso Americano',
       description: 'Expresso diluído, menos intenso que o tradicional',
       price: 9.9,
@@ -59,6 +49,7 @@ export const CoffeList = () => {
       categories: [CoffeeCategoryEnum.TRADICIONAL],
     },
     {
+      id: 4,
       name: 'Café com Leite',
       description: 'Meio a meio de expresso tradicional com leite vaporizado',
       price: 9.9,
@@ -69,6 +60,7 @@ export const CoffeList = () => {
       ],
     },
     {
+      id: 5,
       name: 'Latte',
       description:
         'Uma dose de café expresso com o dobro de leite e espuma cremosa',
@@ -85,7 +77,7 @@ export const CoffeList = () => {
       <h1>Nossos Cafés</h1>
       <List>
         {coffeeList.map((coffee) => (
-          <CoffeItem coffeeProduct={coffee} />
+          <CoffeItem key={coffee.id} coffeeProduct={coffee} />
         ))}
       </List>
     </CoffeListStyle>

@@ -1,7 +1,24 @@
 import { createContext, ReactNode, useState } from 'react';
-import { Cart, Order } from '../pages/Home/components/CoffeList';
+import { CoffeeProduct } from '../pages/Home/components/CoffeList';
+
+export interface Order {
+  id: number;
+  product: CoffeeProduct;
+  quantity: number;
+}
+
+export interface Cart {
+  orders: Order[];
+}
+
+export interface DeliveryInfo {
+  cart: Cart;
+  userDelivery: any;
+}
 
 export interface CartContextType {
+  deliveryInfo: DeliveryInfo;
+
   addItemsToCart: (order: Order) => void;
   removeItemsToCart: (order: Order) => void;
 }
@@ -13,16 +30,32 @@ interface CartContextProps {
 }
 
 export function CartContextProvider({ children }: CartContextProps) {
-  const [cart, setCart] = useState<Cart>({ orders: [] });
+  const [deliveryInfo, setDeliveryInfo] = useState<DeliveryInfo>({
+    userDelivery: null,
+    cart: { orders: [] },
+  });
 
   function addItemsToCart(order: Order) {
-    cart.orders.push(order);
-    console.log(cart);
+    if (order.quantity == 0) return;
+    setDeliveryInfo((state) => {
+      const newCart: Cart = {
+        orders: [...state.cart.orders, order],
+      };
+      const newDeliberyInfo: DeliveryInfo = {
+        ...state,
+        cart: newCart,
+      };
+      console.log(newDeliberyInfo);
+      alert('item adicionado ao carrinho');
+      return newDeliberyInfo;
+    });
   }
-  function removeItemsToCart(order: Order) {}
+  function removeItemsToCart() {}
 
   return (
-    <CartContext.Provider value={{ addItemsToCart, removeItemsToCart }}>
+    <CartContext.Provider
+      value={{ deliveryInfo, addItemsToCart, removeItemsToCart }}
+    >
       {children}
     </CartContext.Provider>
   );

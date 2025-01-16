@@ -16,8 +16,8 @@ import { defaultTheme } from '../../../../styles/themes/default';
 import { Category } from './components/Category';
 import { Minus, Plus } from 'phosphor-react';
 import { useContext, useState } from 'react';
-import { CoffeeProduct, Order } from '../CoffeList';
-import { CartContext } from '../../../../context/CartContext';
+import { CoffeeProduct } from '../CoffeList';
+import { CartContext, Order } from '../../../../context/CartContext';
 
 interface CoffeItemProps {
   coffeeProduct: CoffeeProduct;
@@ -30,11 +30,12 @@ export const CoffeItem = ({ coffeeProduct }: CoffeItemProps) => {
     setCoffeeCounter(coffeeCounter + 1);
   };
   const decreaseCounter = () => {
-    coffeeCounter > 0 && setCoffeeCounter(coffeeCounter - 1);
+    setCoffeeCounter(coffeeCounter - 1);
   };
 
   const insertOrder = () => {
     const order: Order = {
+      id: Math.random(),
       product: coffeeProduct,
       quantity: coffeeCounter,
     };
@@ -44,11 +45,11 @@ export const CoffeItem = ({ coffeeProduct }: CoffeItemProps) => {
   return (
     <CoffeItemStyle>
       <CoffeItemImage>
-        <img src={`assets/CoffeeImages/${coffeeProduct.image_src}`} alt="" />
+        <img src={`/assets/CoffeeImages/${coffeeProduct.image_src}`} alt="" />
       </CoffeItemImage>
       <Categories>
         {coffeeProduct.categories.map((category) => (
-          <Category categoryName={category} />
+          <Category key={category} categoryName={category} />
         ))}
       </Categories>
       <Title>{coffeeProduct.name}</Title>
@@ -69,12 +70,11 @@ export const CoffeItem = ({ coffeeProduct }: CoffeItemProps) => {
             <Plus size={14} onClick={increaseCounter} weight="fill" />
           </ProductCounter>
           <IconItem variant={'yellow-dark'}>
-            <AddToShoppingCart>
+            <AddToShoppingCart onClick={insertOrder}>
               <ShoppingCart
                 size={16}
                 weight="fill"
                 color={defaultTheme.white}
-                onClick={insertOrder}
               />
             </AddToShoppingCart>
           </IconItem>

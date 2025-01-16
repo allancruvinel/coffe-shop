@@ -8,8 +8,13 @@ import Logo from '../../assets/Logo.svg';
 import { MapPin, ShoppingCart } from 'phosphor-react';
 import { defaultTheme } from '../../styles/themes/default';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
 
 export const Header = () => {
+  const { deliveryInfo } = useContext(CartContext);
+
+  const cartItemQuantity = deliveryInfo.cart.orders.length;
   return (
     <HeaderContainer>
       <Link to="/">
@@ -25,7 +30,7 @@ export const Header = () => {
           </Link>
           <Link to="/checkout">
             <ShoppingCartButton>
-              <p>3</p>
+              <p>{cartItemQuantity}</p>
               <ShoppingCart
                 size={24}
                 weight="fill"

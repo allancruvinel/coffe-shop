@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import { CoffeeCart } from './components/CoffeeCart';
 import {
   BillOrderCardContainer,
@@ -7,16 +8,18 @@ import {
   DemonstrativeTotal,
   Divider,
 } from './styles';
+import { CartContext } from '../../../../context/CartContext';
 
 export const BillOrderCard = () => {
+  const { deliveryInfo } = useContext(CartContext);
   return (
     <BillOrderCardContainer>
-      <CoffeeCart />
-      <Divider />
-      <CoffeeCart />
-      <Divider />
-      <CoffeeCart />
-      <Divider />
+      {deliveryInfo.cart.orders.map((order) => (
+        <div>
+          <CoffeeCart key={order.id} order={order} />
+          <Divider />
+        </div>
+      ))}
       <BillPrice>
         <DemonstrativeCalc>
           <p>Total de itens</p>
