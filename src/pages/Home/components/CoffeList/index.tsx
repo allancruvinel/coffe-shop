@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { CoffeItem } from '../CoffeItem';
 import { CoffeListStyle, List } from './styles';
 
