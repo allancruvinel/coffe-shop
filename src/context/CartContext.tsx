@@ -21,6 +21,8 @@ export interface CartContextType {
 
   addItemsToCart: (order: Order) => void;
   removeItemsToCart: (order: Order) => void;
+  increaseCounterFromCartOrder: (order: Order) => void;
+  decreaseCounterFromCartOrder: (order: Order) => void;
 }
 
 export const CartContext = createContext({} as CartContextType);
@@ -50,11 +52,73 @@ export function CartContextProvider({ children }: CartContextProps) {
       return newDeliberyInfo;
     });
   }
-  function removeItemsToCart() {}
+  function removeItemsToCart(order: Order) {
+    setDeliveryInfo((state) => {
+      const newCartOrders = state.cart.orders.filter(
+        (cartOrder) => cartOrder.id !== order.id
+      );
+      const newDeliveryInfo: DeliveryInfo = {
+        ...state,
+        cart: {
+          ...state.cart,
+          orders: newCartOrders,
+        },
+      };
+      return newDeliveryInfo;
+    });
+  }
+
+  function increaseCounterFromCartOrder(order: Order) {
+    setDeliveryInfo((state) => {
+      const newCartOrders = state.cart.orders.map((cartOrder) => {
+        if (cartOrder.id === order.id)
+          return {
+            ...cartOrder,
+            quantity: cartOrder.quantity + 1,
+          };
+        return cartOrder;
+      });
+      const newDeliveryInfo: DeliveryInfo = {
+        ...state,
+        cart: {
+          ...state.cart,
+          orders: newCartOrders,
+        },
+      };
+      return newDeliveryInfo;
+    });
+  }
+  function decreaseCounterFromCartOrder(order: Order) {
+    if (order.quantity === 0) return;
+    setDeliveryInfo((state) => {
+      const newCartOrders = state.cart.orders.map((cartOrder) => {
+        if (cartOrder.id === order.id)
+          return {
+            ...cartOrder,
+            quantity: cartOrder.quantity - 1,
+          };
+        return cartOrder;
+      });
+      const newDeliveryInfo: DeliveryInfo = {
+        ...state,
+        cart: {
+          ...state.cart,
+          orders: newCartOrders,
+        },
+      };
+      return newDeliveryInfo;
+    });
+  }
 
   return (
     <CartContext.Provider
-      value={{ deliveryInfo, addItemsToCart, removeItemsToCart }}
+      value={{
+        deliveryInfo,
+        addItemsToCart,
+        removeItemsToCart,
+        increaseCounterFromCartOrder,
+        decreaseCounterFromCartOrder,
+      }}
     >
       {children}
     </CartContext.Provider>
