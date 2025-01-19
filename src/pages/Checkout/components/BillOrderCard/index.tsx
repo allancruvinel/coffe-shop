@@ -9,9 +9,16 @@ import {
   Divider,
 } from './styles';
 import { CartContext } from '../../../../context/CartContext';
+import { useFormContext } from 'react-hook-form';
 
-export const BillOrderCard = () => {
+interface BillOrderCardProps {
+  submitRegister: (data: any) => void;
+}
+
+export const BillOrderCard = ({ submitRegister }: BillOrderCardProps) => {
   const { deliveryInfo } = useContext(CartContext);
+
+  const { handleSubmit } = useFormContext();
 
   const somaTotalDeItems = deliveryInfo.cart.orders.reduce((soma, atual) => {
     return soma + atual.product.price * atual.quantity;
@@ -58,7 +65,9 @@ export const BillOrderCard = () => {
           </p>
         </DemonstrativeTotal>
       </BillPrice>
-      <CommitOrderButton>confirmar pedido</CommitOrderButton>
+      <CommitOrderButton onClick={handleSubmit(submitRegister)}>
+        confirmar pedido
+      </CommitOrderButton>
     </BillOrderCardContainer>
   );
 };

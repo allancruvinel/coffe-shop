@@ -77,4 +77,3 @@ export const ProductCounter = styled.div`
     color: ${(props) => props.theme['purple-dark']};
   }
 `;
-

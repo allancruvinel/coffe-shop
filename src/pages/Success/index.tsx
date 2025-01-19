@@ -14,8 +14,11 @@ import {
 import { MapPin, Timer, CurrencyDollar } from 'phosphor-react';
 import { defaultTheme } from '../../styles/themes/default';
 import IllustrationsImage from '../../assets/Illustration.svg';
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
 
 export const Success = () => {
+  const { deliveryInfo } = useContext(CartContext);
   return (
     <SuccessContainer>
       <TextConfirmation>Uhu! Pedido confirmado</TextConfirmation>
@@ -30,9 +33,17 @@ export const Success = () => {
             </ImageLine>
             <TextInformation>
               <p>
-                Entrega em <strong>Rua João Daniel Martinelli, 102</strong>
+                Entrega em{' '}
+                <strong>
+                  {deliveryInfo.userDelivery?.rua},{' '}
+                  {deliveryInfo.userDelivery?.numero}
+                </strong>
               </p>
-              <p>Farrapos - Porto Alegre, RS</p>
+              <p>
+                {deliveryInfo.userDelivery?.bairro} -{' '}
+                {deliveryInfo.userDelivery?.cidade},{' '}
+                {deliveryInfo.userDelivery?.uf}
+              </p>
             </TextInformation>
           </Local>
           <Time>

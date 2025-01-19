@@ -16,7 +16,11 @@ export const PaymentOptions = styled.div`
     align-items: center;
   }
 `;
-export const PaymentOption = styled.button`
+
+interface PaymentOptionProps {
+  isSelected: boolean;
+}
+export const PaymentOption = styled.button<PaymentOptionProps>`
   display: flex;
   outline: none;
   border: none;
@@ -36,11 +40,14 @@ export const PaymentOption = styled.button`
     font-size: 12px;
     line-height: 160%;
   }
-  &:focus {
-    outline: none;
-    border: 1px solid ${(props) => props.theme.purple};
-    background-color: ${(props) => props.theme['purple-light']};
-  }
+  ${(props) =>
+    props.isSelected &&
+    `
+      outline: none;
+      border: 1px solid ${props.theme.purple};
+      background-color: ${props.theme['purple-light']};
+    `}
+
   @media (max-width: 580px) {
     width: 100%;
   }

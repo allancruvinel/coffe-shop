@@ -6,8 +6,11 @@ import {
   PaymentTypeCardContainer,
 } from './styles';
 import { defaultTheme } from '../../../../styles/themes/default';
+import { useContext } from 'react';
+import { CartContext, PaymentType } from '../../../../context/CartContext';
 
 export function PaymentTypeCard() {
+  const { deliveryInfo, setPaymentType } = useContext(CartContext);
   return (
     <PaymentTypeCardContainer>
       <TitleCard>
@@ -20,15 +23,24 @@ export function PaymentTypeCard() {
         </div>
       </TitleCard>
       <PaymentOptions>
-        <PaymentOption>
+        <PaymentOption
+          isSelected={deliveryInfo.paymentType === PaymentType.CREDIT_CARD}
+          onClick={() => setPaymentType(PaymentType.CREDIT_CARD)}
+        >
           <CreditCard size={16} color={defaultTheme.purple} />
           <p>CARTÃO DE CRÉDITO</p>
         </PaymentOption>
-        <PaymentOption>
+        <PaymentOption
+          isSelected={deliveryInfo.paymentType === PaymentType.DEBIT_CARD}
+          onClick={() => setPaymentType(PaymentType.DEBIT_CARD)}
+        >
           <Bank size={16} color={defaultTheme.purple} />
           <p>CARTÃO DE DÉBITO</p>
         </PaymentOption>
-        <PaymentOption>
+        <PaymentOption
+          isSelected={deliveryInfo.paymentType === PaymentType.MONEY}
+          onClick={() => setPaymentType(PaymentType.MONEY)}
+        >
           <Money size={16} color={defaultTheme.purple} />
           <p>DINHEIRO</p>
         </PaymentOption>
