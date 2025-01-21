@@ -1,4 +1,10 @@
-import { createContext, ReactNode, useEffect, useState } from 'react';
+import {
+  createContext,
+  ReactNode,
+  useEffect,
+  useReducer,
+  useState,
+} from 'react';
 import { CoffeeProduct } from '../pages/Home/components/CoffeList';
 
 export interface Order {
@@ -52,25 +58,116 @@ interface CartContextProps {
 }
 
 export function CartContextProvider({ children }: CartContextProps) {
-  const [deliveryInfo, setDeliveryInfo] = useState<DeliveryInfo>(() => {
-    try {
+  // const [deliveryInfo, dispatch] = useState<DeliveryInfo>(() => {
+  //   try {
+  //     const storageStateAsJSON = localStorage.getItem(
+  //       '@02-desafio-react-coffe:deliveryInfo-1.0.0'
+  //     );
+  //     console.log('pegando item ', storageStateAsJSON);
+  //     if (storageStateAsJSON) {
+  //       return JSON.parse(storageStateAsJSON);
+  //     } else {
+  //       return {
+  //         userDelivery: null,
+  //         cart: { orders: [] },
+  //         paymentType: null,
+  //       };
+  //     }
+  //   } catch (ex) {
+  //     console.log('erro no construtor', ex);
+  //   }
+  // });
+
+  const [deliveryInfo, dispatch] = useReducer(
+    (state: DeliveryInfo, action: any) => {
+      if (action.type === 'ADD_ITEM_TO_CART') {
+        return {
+          ...state,
+          cart: {
+            ...state.cart,
+            orders: [...state.cart.orders, action.payload.order],
+          },
+        };
+      }
+
+      if (action.type === 'SET_PAYMENT_TYPE') {
+        return {
+          ...state,
+          paymentType: action.payload.paymentType,
+        };
+      }
+
+      if (action.type === 'ADD_USER_TO_DELIVERY_INFO') {
+        return {
+          ...state,
+          userDelivery: action.payload.user,
+        };
+      }
+
+      if (action.type === 'REMOVE_ITEMS_TO_CART') {
+        return {
+          ...state,
+          cart: {
+            ...state.cart,
+            orders: state.cart.orders.filter(
+              (cartOrder) => cartOrder.id !== action.payload.order.id
+            ),
+          },
+        };
+      }
+      if (action.type === 'INCREASE_COUNTER_FROM_CART_ORDER') {
+        return {
+          ...state,
+          cart: {
+            ...state.cart,
+            orders: state.cart.orders.map((cartOrder) => {
+              if (cartOrder.id === action.payload.order.id)
+                return {
+                  ...cartOrder,
+                  quantity: cartOrder.quantity + 1,
+                };
+              return cartOrder;
+            }),
+          },
+        };
+      }
+
+      if (action.type === 'DECREASE_COUNTER_FROM_CART_ORDER') {
+        if (action.payload.order.quantity === 0) return state;
+        return {
+          ...state,
+          cart: {
+            ...state.cart,
+            orders: state.cart.orders.map((cartOrder) => {
+              if (cartOrder.id === action.payload.order.id)
+                return {
+                  ...cartOrder,
+                  quantity: cartOrder.quantity - 1,
+                };
+              return cartOrder;
+            }),
+          },
+        };
+      }
+
+      return state;
+    },
+    {
+      userDelivery: null,
+      cart: { orders: [] },
+      paymentType: null,
+    },
+    (initialstate) => {
       const storageStateAsJSON = localStorage.getItem(
         '@02-desafio-react-coffe:deliveryInfo-1.0.0'
       );
       console.log('pegando item ', storageStateAsJSON);
       if (storageStateAsJSON) {
         return JSON.parse(storageStateAsJSON);
-      } else {
-        return {
-          userDelivery: null,
-          cart: { orders: [] },
-          paymentType: null,
-        };
       }
-    } catch (ex) {
-      console.log('erro no construtor', ex);
+      return initialstate;
     }
-  });
+  );
 
   useEffect(() => {}, []);
 
@@ -85,97 +182,56 @@ export function CartContextProvider({ children }: CartContextProps) {
 
   function addItemsToCart(order: Order) {
     if (order.quantity == 0) return;
-    setDeliveryInfo((state) => {
-      const newCart: Cart = {
-        orders: [...state.cart.orders, order],
-      };
-      const newDeliberyInfo: DeliveryInfo = {
-        ...state,
-        cart: newCart,
-      };
-      console.log(newDeliberyInfo);
-      alert('item adicionado ao carrinho');
-      return newDeliberyInfo;
+    dispatch({
+      type: 'ADD_ITEM_TO_CART',
+      payload: {
+        order,
+      },
     });
+    alert('item inserido no carrinho');
   }
 
   function setPaymentType(paymentType: PaymentType) {
-    setDeliveryInfo((state) => {
-      const newDeliveryInfo: DeliveryInfo = {
-        ...state,
-        paymentType: paymentType,
-      };
-      console.log('setPaymentType:newDeliveryInfo', newDeliveryInfo);
-      return newDeliveryInfo;
+    dispatch({
+      type: 'SET_PAYMENT_TYPE',
+      payload: {
+        paymentType,
+      },
     });
   }
 
   function addUserToDeliveryInfo(user: User) {
-    setDeliveryInfo((state) => {
-      const newDeliveryInfo: DeliveryInfo = {
-        ...state,
-        userDelivery: user,
-      };
-      console.log('addUserToDeliveryInfo', newDeliveryInfo);
-      return newDeliveryInfo;
+    dispatch({
+      type: 'ADD_USER_TO_DELIVERY_INFO',
+      payload: {
+        user,
+      },
     });
   }
 
   function removeItemsToCart(order: Order) {
-    setDeliveryInfo((state) => {
-      const newCartOrders = state.cart.orders.filter(
-        (cartOrder) => cartOrder.id !== order.id
-      );
-      const newDeliveryInfo: DeliveryInfo = {
-        ...state,
-        cart: {
-          ...state.cart,
-          orders: newCartOrders,
-        },
-      };
-      return newDeliveryInfo;
+    dispatch({
+      type: 'REMOVE_ITEMS_TO_CART',
+      payload: {
+        order,
+      },
     });
   }
 
   function increaseCounterFromCartOrder(order: Order) {
-    setDeliveryInfo((state) => {
-      const newCartOrders = state.cart.orders.map((cartOrder) => {
-        if (cartOrder.id === order.id)
-          return {
-            ...cartOrder,
-            quantity: cartOrder.quantity + 1,
-          };
-        return cartOrder;
-      });
-      const newDeliveryInfo: DeliveryInfo = {
-        ...state,
-        cart: {
-          ...state.cart,
-          orders: newCartOrders,
-        },
-      };
-      return newDeliveryInfo;
+    dispatch({
+      type: 'INCREASE_COUNTER_FROM_CART_ORDER',
+      payload: {
+        order,
+      },
     });
   }
   function decreaseCounterFromCartOrder(order: Order) {
-    if (order.quantity === 0) return;
-    setDeliveryInfo((state) => {
-      const newCartOrders = state.cart.orders.map((cartOrder) => {
-        if (cartOrder.id === order.id)
-          return {
-            ...cartOrder,
-            quantity: cartOrder.quantity - 1,
-          };
-        return cartOrder;
-      });
-      const newDeliveryInfo: DeliveryInfo = {
-        ...state,
-        cart: {
-          ...state.cart,
-          orders: newCartOrders,
-        },
-      };
-      return newDeliveryInfo;
+    dispatch({
+      type: 'DECREASE_COUNTER_FROM_CART_ORDER',
+      payload: {
+        order,
+      },
     });
   }
 
