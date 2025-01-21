@@ -52,26 +52,6 @@ interface CartContextProps {
 }
 
 export function CartContextProvider({ children }: CartContextProps) {
-  // const [deliveryInfo, dispatch] = useState<DeliveryInfo>(() => {
-  //   try {
-  //     const storageStateAsJSON = localStorage.getItem(
-  //       '@02-desafio-react-coffe:deliveryInfo-1.0.0'
-  //     );
-  //     console.log('pegando item ', storageStateAsJSON);
-  //     if (storageStateAsJSON) {
-  //       return JSON.parse(storageStateAsJSON);
-  //     } else {
-  //       return {
-  //         userDelivery: null,
-  //         cart: { orders: [] },
-  //         paymentType: null,
-  //       };
-  //     }
-  //   } catch (ex) {
-  //     console.log('erro no construtor', ex);
-  //   }
-  // });
-
   const [deliveryInfo, dispatch] = useReducer(
     (state: DeliveryInfo, action: any) => {
       if (action.type === 'ADD_ITEM_TO_CART') {
@@ -162,8 +142,6 @@ export function CartContextProvider({ children }: CartContextProps) {
       return initialstate;
     }
   );
-
-  useEffect(() => {}, []);
 
   useEffect(() => {
     const stateJSON = JSON.stringify(deliveryInfo);
