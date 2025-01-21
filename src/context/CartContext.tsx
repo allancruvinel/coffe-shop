@@ -1,10 +1,4 @@
-import {
-  createContext,
-  ReactNode,
-  useEffect,
-  useReducer,
-  useState,
-} from 'react';
+import { createContext, ReactNode, useEffect, useReducer } from 'react';
 import { CoffeeProduct } from '../pages/Home/components/CoffeList';
 
 export interface Order {
